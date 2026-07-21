@@ -1,0 +1,4 @@
+species,sepal length (cm)__mean,sepal length (cm)__median,sepal length (cm)__std,sepal width (cm)__mean,sepal width (cm)__median,sepal width (cm)__std,petal length (cm)__mean,petal length (cm)__median,petal length (cm)__std,petal width (cm)__mean,petal width (cm)__median,petal width (cm)__std
+setosa,5.006,5.0,0.352,3.428,3.4,0.379,1.462,1.5,0.174,0.246,0.2,0.105
+versicolor,5.936,5.9,0.516,2.77,2.8,0.314,4.26,4.35,0.47,1.326,1.3,0.198
+virginica,6.588,6.5,0.636,2.974,3.0,0.322,5.552,5.55,0.552,2.026,2.0,0.275
