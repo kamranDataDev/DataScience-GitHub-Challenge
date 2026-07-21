@@ -17,10 +17,14 @@
         <span class="brand-mark">DS</span>
         <span class="brand-text">Iris Project</span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-        Menu
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-toggle-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
       </button>
-      <div class="nav-links" id="nav-links">
+      <div class="nav-links" id="nav-links" role="list">
         <a href="#overview">Overview</a>
         <a href="#dataset">Dataset</a>
         <a href="#technologies">Technologies</a>
@@ -33,16 +37,22 @@
 
   <main>
     <section class="hero section" id="hero">
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <span class="shape shape-one"></span>
+        <span class="shape shape-two"></span>
+        <span class="shape shape-three"></span>
+      </div>
+
       <div class="hero-content reveal">
-        <p class="eyebrow">Beginner-friendly data science portfolio</p>
-        <h1>Exploring the Iris dataset with clean analysis and clear visuals.</h1>
+        <p class="eyebrow">Data Science Showcase</p>
+        <h1>From Raw Measurements to Decision-Ready Insights.</h1>
         <p class="hero-copy">
-          This project loads the classic Iris dataset, creates summary tables,
-          generates charts, and organizes everything into simple folders so it is easy to learn from.
+          A polished walkthrough of the Iris dataset featuring clean preprocessing,
+          statistical summaries, and visual storytelling designed for practical analysis.
         </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#gallery">View Charts</a>
-          <a class="button button-secondary" href="https://github.com/kamranDataDev/DataScience-GitHub-Challenge" target="_blank" rel="noreferrer">GitHub Repository</a>
+          <a class="button button-primary" href="#gallery">Explore Visuals</a>
+          <a class="button button-secondary" href="#overview">Read Project Overview</a>
         </div>
         <div class="hero-stats" aria-label="Project highlights">
           <article class="stat-card">
@@ -59,6 +69,7 @@
           </article>
         </div>
       </div>
+
       <div class="hero-panel reveal">
         <div class="panel-card panel-card-main">
           <p>Project snapshot</p>
@@ -85,6 +96,11 @@
           </article>
         </div>
       </div>
+
+      <a class="hero-scroll" href="#overview" aria-label="Scroll down to overview">
+        <span>Scroll</span>
+        <span class="hero-scroll-dot" aria-hidden="true"></span>
+      </a>
     </section>
 
     <section class="section reveal" id="overview">
