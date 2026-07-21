@@ -657,6 +657,135 @@ h2 {
   margin-bottom: 2rem;
 }
 
+.about-section {
+  padding-top: 1rem;
+}
+
+.about-heading {
+  max-width: 44rem;
+  margin-bottom: 2.2rem;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.about-story,
+.about-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.about-story {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.about-label {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-story h3,
+.about-card h3 {
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.about-story h3 {
+  font-size: clamp(1.65rem, 2.3vw, 2.5rem);
+}
+
+.about-story p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.about-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.about-metric {
+  padding: 1rem;
+  border-radius: calc(var(--radius-lg) - 4px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--border);
+}
+
+.about-metric strong {
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.about-metric span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.about-card {
+  padding: 1.35rem;
+}
+
+.about-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  color: var(--accent-dark);
+  background: linear-gradient(135deg, rgba(42, 157, 143, 0.16), rgba(244, 162, 97, 0.12));
+}
+
+.about-icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.about-card h3 {
+  margin-bottom: 0.55rem;
+  font-size: 1.18rem;
+}
+
+.about-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .card-grid {
   display: grid;
   gap: 1rem;
@@ -792,6 +921,10 @@ h2 {
     display: grid;
   }
 
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
   .four-up,
   .gallery-grid,
   .panel-grid,
@@ -901,8 +1034,18 @@ h2 {
   .hero-stats,
   .four-up,
   .gallery-grid,
-  .panel-grid {
+  .panel-grid,
+  .about-grid,
+  .about-metrics {
     grid-template-columns: 1fr;
+  }
+
+  .about-story {
+    padding: 1.4rem;
+  }
+
+  .about-card {
+    padding: 1.2rem;
   }
 
   .cta-section {
