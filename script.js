@@ -1,10 +1,40 @@
 const menuToggle = document.querySelector(".menu-toggle");
+const themeToggle = document.querySelector(".theme-toggle");
 const navLinks = document.querySelector(".nav-links");
 const siteHeader = document.querySelector(".site-header");
 const yearElement = document.querySelector("#year");
 const revealElements = document.querySelectorAll(".reveal");
 const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const heroHeading = document.querySelector(".hero-content h1");
+const themeStorageKey = "iris-project-theme";
+
+const getStoredTheme = () => {
+  try {
+    return window.localStorage.getItem(themeStorageKey);
+  } catch {
+    return null;
+  }
+};
+
+const setStoredTheme = (theme) => {
+  try {
+    window.localStorage.setItem(themeStorageKey, theme);
+  } catch {
+    // Storage can be unavailable in private browsing contexts.
+  }
+};
+
+const applyTheme = (theme) => {
+  const isDark = theme === "dark";
+  document.body.dataset.theme = isDark ? "dark" : "light";
+  document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  themeToggle.setAttribute("aria-label", isDark ? "Disable dark mode" : "Enable dark mode");
+  themeToggle.querySelector(".theme-toggle-label").textContent = isDark ? "Light mode" : "Dark mode";
+  setStoredTheme(theme);
+};
+
+applyTheme(getStoredTheme() || "light");
 
 yearElement.textContent = new Date().getFullYear();
 
@@ -83,6 +113,11 @@ window.addEventListener("scroll", syncHeaderState, { passive: true });
 menuToggle.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("is-open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
 });
 
 sectionLinks.forEach((link) => {

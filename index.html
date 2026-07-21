@@ -17,13 +17,22 @@
         <span class="brand-mark">DS</span>
         <span class="brand-text">Iris Project</span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
-        <span class="menu-toggle-label">Menu</span>
-        <span class="menu-toggle-bars" aria-hidden="true">
-          <span></span>
-          <span></span>
-        </span>
-      </button>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Enable dark mode">
+          <span class="theme-toggle-icon" aria-hidden="true">
+            <span class="theme-toggle-sun"></span>
+            <span class="theme-toggle-moon"></span>
+          </span>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+          <span class="menu-toggle-label">Menu</span>
+          <span class="menu-toggle-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
       <div class="nav-links" id="nav-links" role="list">
         <a href="#overview">Overview</a>
         <a href="#dataset">Dataset</a>
