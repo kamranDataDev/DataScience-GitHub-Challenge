@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A beginner-friendly portfolio landing page for the Iris data science project." />
+  <title>Iris Data Science Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#hero">
+        <span class="brand-mark">DS</span>
+        <span class="brand-text">Iris Project</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        Menu
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#technologies">Technologies</a>
+        <a href="#structure">Structure</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#outcomes">Outcomes</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Beginner-friendly data science portfolio</p>
+        <h1>Exploring the Iris dataset with clean analysis and clear visuals.</h1>
+        <p class="hero-copy">
+          This project loads the classic Iris dataset, creates summary tables,
+          generates charts, and organizes everything into simple folders so it is easy to learn from.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#gallery">View Charts</a>
+          <a class="button button-secondary" href="https://github.com/kamranDataDev/DataScience-GitHub-Challenge" target="_blank" rel="noreferrer">GitHub Repository</a>
+        </div>
+        <div class="hero-stats" aria-label="Project highlights">
+          <article class="stat-card">
+            <strong>150</strong>
+            <span>dataset rows</span>
+          </article>
+          <article class="stat-card">
+            <strong>4</strong>
+            <span>numeric features</span>
+          </article>
+          <article class="stat-card">
+            <strong>3</strong>
+            <span>flower species</span>
+          </article>
+        </div>
+      </div>
+      <div class="hero-panel reveal">
+        <div class="panel-card panel-card-main">
+          <p>Project snapshot</p>
+          <h2>Iris Analysis Workflow</h2>
+          <ul>
+            <li>Load clean data from scikit-learn</li>
+            <li>Save CSV outputs for reuse</li>
+            <li>Create charts for exploration</li>
+            <li>Present results in a simple structure</li>
+          </ul>
+        </div>
+        <div class="panel-grid">
+          <article class="panel-card">
+            <span>Data</span>
+            <strong>CSV</strong>
+          </article>
+          <article class="panel-card">
+            <span>Insights</span>
+            <strong>Summary tables</strong>
+          </article>
+          <article class="panel-card">
+            <span>Visuals</span>
+            <strong>4 charts</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="overview">
+      <div class="section-heading">
+        <p class="eyebrow">Project Overview</p>
+        <h2>What this project does</h2>
+        <p>
+          The script turns a famous machine learning dataset into a small, readable data analysis project.
+        </p>
+      </div>
+      <div class="card-grid four-up">
+        <article class="info-card">
+          <h3>Load the data</h3>
+          <p>Fetch the built-in Iris dataset and convert it into a pandas DataFrame.</p>
+        </article>
+        <article class="info-card">
+          <h3>Save results</h3>
+          <p>Export the cleaned dataset and statistical tables into reusable CSV files.</p>
+        </article>
+        <article class="info-card">
+          <h3>Create charts</h3>
+          <p>Generate a histogram, scatter plot, box plot, and correlation heatmap.</p>
+        </article>
+        <article class="info-card">
+          <h3>Keep it organized</h3>
+          <p>Store code, data, charts, and outputs in separate folders for clarity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section reveal" id="dataset">
+      <div>
+        <p class="eyebrow">Dataset Information</p>
+        <h2>The Iris dataset in simple terms</h2>
+        <p>
+          The dataset contains measurements from 150 iris flowers across three species.
+          It is a classic starter dataset because it is small, clean, and easy to visualize.
+        </p>
+      </div>
+      <div class="dataset-card">
+        <ul class="detail-list">
+          <li><span>Source</span><strong>Built-in scikit-learn dataset</strong></li>
+          <li><span>Rows</span><strong>150 samples</strong></li>
+          <li><span>Features</span><strong>Sepal length, sepal width, petal length, petal width</strong></li>
+          <li><span>Classes</span><strong>Setosa, Versicolor, Virginica</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="technologies">
+      <div class="section-heading">
+        <p class="eyebrow">Technologies Used</p>
+        <h2>Tools used to build the analysis</h2>
+      </div>
+      <div class="pill-row">
+        <span>Python</span>
+        <span>pandas</span>
+        <span>matplotlib</span>
+        <span>seaborn</span>
+        <span>scikit-learn</span>
+        <span>CSV files</span>
+        <span>GitHub Pages</span>
+      </div>
+    </section>
+
+    <section class="section reveal" id="structure">
+      <div class="section-heading">
+        <p class="eyebrow">Folder Structure</p>
+        <h2>How the project is organized</h2>
+      </div>
+      <div class="structure-card">
+        <pre><code>DataScience-GitHub-Challenge/
+├── analysis.py
+├── index.html
+├── style.css
+├── script.js
+├── data/
+│   └── iris.csv
+├── charts/
+│   ├── histogram_sepal_length.png
+│   ├── scatter_petal_dimensions.png
+│   ├── box_plot_measurements_by_species.png
+│   └── correlation_heatmap.png
+└── output/
+    ├── summary.csv
+    └── group_statistics.csv</code></pre>
+      </div>
+    </section>
+
+    <section class="section reveal" id="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">Charts Gallery</p>
+        <h2>Visual results from the analysis</h2>
+        <p>Each chart helps explain a different part of the dataset.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-card">
+          <img src="charts/histogram_sepal_length.png" alt="Histogram showing the distribution of sepal length" />
+          <figcaption>
+            <h3>Histogram</h3>
+            <p>Shows how sepal length values are distributed.</p>
+          </figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="charts/scatter_petal_dimensions.png" alt="Scatter plot of petal length versus petal width" />
+          <figcaption>
+            <h3>Scatter Plot</h3>
+            <p>Compares petal length and petal width by species.</p>
+          </figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="charts/box_plot_measurements_by_species.png" alt="Box plot comparing measurements across species" />
+          <figcaption>
+            <h3>Box Plot</h3>
+            <p>Compares measurement ranges across all three species.</p>
+          </figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="charts/correlation_heatmap.png" alt="Correlation heatmap of numeric iris features" />
+          <figcaption>
+            <h3>Heatmap</h3>
+            <p>Highlights how the numeric features relate to each other.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section split-section reveal" id="outcomes">
+      <div>
+        <p class="eyebrow">Learning Outcomes</p>
+        <h2>What a beginner can learn here</h2>
+        <p>
+          This project is a good first example of a full data workflow, from loading data to sharing results.
+        </p>
+      </div>
+      <div class="dataset-card outcomes-card">
+        <ul class="check-list">
+          <li>How to load and inspect a dataset in pandas</li>
+          <li>How to calculate summary statistics</li>
+          <li>How to make charts with matplotlib and seaborn</li>
+          <li>How to structure a small project neatly</li>
+          <li>How to publish a static website with GitHub Pages</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section cta-section reveal">
+      <div>
+        <p class="eyebrow">GitHub Repository Button</p>
+        <h2>Want to see the code?</h2>
+        <p>Open the repository to review the analysis script, charts, and outputs.</p>
+      </div>
+      <a class="button button-primary button-large" href="https://github.com/kamranDataDev/DataScience-GitHub-Challenge" target="_blank" rel="noreferrer">Open GitHub Repository</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built for the Iris Data Science project.</p>
+    <p>Last updated <span id="year"></span>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
