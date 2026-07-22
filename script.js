@@ -6,6 +6,7 @@ const yearElement = document.querySelector("#year");
 const revealElements = document.querySelectorAll(".reveal");
 const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const heroHeading = document.querySelector(".hero-content h1");
+const statsSection = document.querySelector(".stats-section");
 const themeStorageKey = "iris-project-theme";
 
 const getStoredTheme = () => {
@@ -142,6 +143,9 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
+        if (entry.target === statsSection) {
+          animateStatsSection(entry.target);
+        }
         observer.unobserve(entry.target);
       }
     });
@@ -152,6 +156,35 @@ const observer = new IntersectionObserver(
 );
 
 revealElements.forEach((element) => observer.observe(element));
+
+const animateCounter = (element, target) => {
+  const duration = 1200;
+  const start = performance.now();
+
+  const step = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    element.textContent = String(Math.round(target * eased));
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+
+  window.requestAnimationFrame(step);
+};
+
+const animateStatsSection = (section) => {
+  if (!section || section.dataset.animated === "true") {
+    return;
+  }
+
+  section.dataset.animated = "true";
+  section.querySelectorAll("[data-counter]").forEach((counter) => {
+    const target = Number(counter.dataset.target || 0);
+    animateCounter(counter, target);
+  });
+};
 
 const highlightedLinks = Array.from(sectionLinks);
 const sections = highlightedLinks
