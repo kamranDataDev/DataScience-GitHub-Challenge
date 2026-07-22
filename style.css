@@ -1779,6 +1779,14 @@ body[data-theme="dark"] .tech-stack-section {
   stroke-linejoin: round;
 }
 
+.tech-icon img {
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+  object-position: center;
+}
+
 .tech-badge {
   display: inline-flex;
   align-items: center;
