@@ -5,6 +5,9 @@ const siteHeader = document.querySelector(".site-header");
 const yearElement = document.querySelector("#year");
 const revealElements = document.querySelectorAll(".reveal");
 const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const footerLinks = document.querySelectorAll('.footer-links a[href^="#"]');
+const siteFooter = document.querySelector(".site-footer");
+const backToTopButton = document.querySelector(".back-to-top");
 const heroHeading = document.querySelector(".hero-content h1");
 const statsSection = document.querySelector(".stats-section");
 const themeStorageKey = "iris-project-theme";
@@ -37,7 +40,9 @@ const applyTheme = (theme) => {
 
 applyTheme(getStoredTheme() || "light");
 
-yearElement.textContent = new Date().getFullYear();
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
 
 if (heroHeading) {
   const typingContainer = document.createElement("p");
@@ -111,6 +116,17 @@ const syncHeaderState = () => {
 syncHeaderState();
 window.addEventListener("scroll", syncHeaderState, { passive: true });
 
+const syncBackToTopState = () => {
+  if (!backToTopButton) {
+    return;
+  }
+
+  backToTopButton.classList.toggle("is-visible", window.scrollY > 300);
+};
+
+syncBackToTopState();
+window.addEventListener("scroll", syncBackToTopState, { passive: true });
+
 menuToggle.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("is-open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
@@ -138,6 +154,32 @@ sectionLinks.forEach((link) => {
   });
 });
 
+footerLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = document.querySelector(link.getAttribute("href"));
+
+    if (target) {
+      event.preventDefault();
+      const offset = siteHeader.offsetHeight + 8;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  });
+});
+
+if (backToTopButton) {
+  backToTopButton.addEventListener("click", () => {
+    const heroSection = document.querySelector("#hero");
+
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -156,6 +198,10 @@ const observer = new IntersectionObserver(
 );
 
 revealElements.forEach((element) => observer.observe(element));
+
+if (siteFooter) {
+  observer.observe(siteFooter);
+}
 
 const animateCounter = (element, target) => {
   const duration = 1200;
