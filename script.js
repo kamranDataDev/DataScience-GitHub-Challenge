@@ -191,6 +191,9 @@ const sections = highlightedLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
+const contactForm = document.querySelector("#contact-form");
+const contactFormStatus = document.querySelector("#contact-form-status");
+
 const activeObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -210,3 +213,18 @@ const activeObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => activeObserver.observe(section));
+
+if (contactForm && contactFormStatus) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    contactFormStatus.textContent = "Your message has been sent successfully. Thank you for reaching out!";
+    contactFormStatus.classList.add("is-visible");
+    contactForm.reset();
+  });
+}
