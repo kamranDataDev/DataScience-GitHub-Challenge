@@ -859,6 +859,41 @@ h2 {
 
 .stats-section {
   position: relative;
+  --stats-card-bg: rgba(255, 255, 255, 0.92);
+  --stats-card-bg-alt: rgba(255, 255, 255, 0.72);
+  --stats-card-border: rgba(15, 23, 42, 0.08);
+  --stats-card-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+  --stats-card-hover-shadow: 0 26px 60px rgba(15, 23, 42, 0.14);
+  --stats-card-hover-border: rgba(42, 157, 143, 0.22);
+  --stats-card-overlay: linear-gradient(135deg, rgba(42, 157, 143, 0.12), rgba(244, 162, 97, 0.08), transparent 66%);
+  --stats-card-sheen: radial-gradient(circle at top right, rgba(42, 157, 143, 0.12), transparent 42%);
+  --stats-card-text: var(--text);
+  --stats-card-muted: var(--muted);
+  --stats-icon-bg: linear-gradient(135deg, rgba(42, 157, 143, 0.14), rgba(244, 162, 97, 0.1));
+  --stats-icon-color: var(--accent-dark);
+  --stats-track-bg: rgba(15, 23, 42, 0.08);
+  --stats-track-border: rgba(15, 23, 42, 0.06);
+  --stats-fill: linear-gradient(90deg, var(--accent), var(--accent-2));
+  --stats-kicker: rgba(15, 23, 42, 0.68);
+}
+
+body[data-theme="dark"] .stats-section {
+  --stats-card-bg: rgba(12, 18, 31, 0.76);
+  --stats-card-bg-alt: rgba(12, 18, 31, 0.56);
+  --stats-card-border: rgba(148, 163, 184, 0.16);
+  --stats-card-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+  --stats-card-hover-shadow: 0 30px 72px rgba(0, 0, 0, 0.38);
+  --stats-card-hover-border: rgba(56, 189, 248, 0.28);
+  --stats-card-overlay: linear-gradient(135deg, rgba(16, 163, 127, 0.14), rgba(56, 189, 248, 0.08), transparent 66%);
+  --stats-card-sheen: radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 42%);
+  --stats-card-text: rgba(243, 247, 255, 0.96);
+  --stats-card-muted: rgba(176, 190, 209, 0.9);
+  --stats-icon-bg: linear-gradient(135deg, rgba(16, 163, 127, 0.18), rgba(56, 189, 248, 0.12));
+  --stats-icon-color: rgba(236, 247, 255, 0.96);
+  --stats-track-bg: rgba(148, 163, 184, 0.16);
+  --stats-track-border: rgba(148, 163, 184, 0.12);
+  --stats-fill: linear-gradient(90deg, rgba(16, 163, 127, 1), rgba(56, 189, 248, 1));
+  --stats-kicker: rgba(226, 235, 247, 0.76);
 }
 
 .stats-grid {
@@ -870,16 +905,19 @@ h2 {
 .stats-card {
   position: relative;
   overflow: hidden;
-  padding: 1.4rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.68)),
-    var(--surface);
-  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  min-height: 100%;
+  border: 1px solid var(--stats-card-border);
+  border-radius: 22px;
+  background: linear-gradient(180deg, var(--stats-card-bg), var(--stats-card-bg-alt));
+  box-shadow: var(--stats-card-shadow);
   transform: translateY(18px);
   opacity: 0;
-  transition: transform 520ms ease, opacity 520ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  transition: transform 520ms ease, opacity 520ms ease, box-shadow 240ms ease, border-color 240ms ease, background 240ms ease;
 }
 
 .stats-section.is-visible .stats-card {
@@ -900,16 +938,16 @@ h2 {
 }
 
 .stats-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  border-color: rgba(42, 157, 143, 0.2);
-  box-shadow: 0 24px 50px rgba(19, 34, 56, 0.16);
+  transform: translateY(-8px);
+  border-color: var(--stats-card-hover-border);
+  box-shadow: var(--stats-card-hover-shadow);
 }
 
 .stats-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(42, 157, 143, 0.18), transparent 40%);
+  background: var(--stats-card-sheen);
   opacity: 0;
   transition: opacity 220ms ease;
   pointer-events: none;
@@ -922,20 +960,22 @@ h2 {
 .stats-icon {
   display: grid;
   place-items: center;
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3.4rem;
+  height: 3.4rem;
   margin-bottom: 1rem;
-  border-radius: 18px;
-  color: var(--accent-dark);
-  background: linear-gradient(135deg, rgba(42, 157, 143, 0.18), rgba(244, 162, 97, 0.12));
+  border-radius: 20px;
+  color: var(--stats-icon-color);
+  background: var(--stats-icon-bg);
+  border: 1px solid var(--stats-card-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .stats-icon svg {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.8;
+  stroke-width: 1.75;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -943,11 +983,11 @@ h2 {
 .stats-label {
   position: relative;
   z-index: 1;
-  margin: 0 0 0.35rem;
-  color: var(--muted);
-  font-size: 0.88rem;
+  margin: 0 0 0.45rem;
+  color: var(--stats-kicker);
+  font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -955,34 +995,31 @@ h2 {
   position: relative;
   z-index: 1;
   display: block;
-  margin-bottom: 0.4rem;
-  font-size: clamp(2.6rem, 5vw, 4rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
+  margin-bottom: 0.55rem;
+  color: var(--stats-card-text);
+  font-size: clamp(2.8rem, 5vw, 4.1rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
   font-variant-numeric: tabular-nums;
 }
 
 .stats-copy {
   position: relative;
   z-index: 1;
-  margin: 0 0 1.1rem;
-  color: var(--muted);
-  line-height: 1.65;
+  margin: 0 0 1.2rem;
+  color: var(--stats-card-muted);
+  line-height: 1.7;
+  font-size: 0.98rem;
 }
 
 .stats-track {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  height: 0.78rem;
+  height: 0.84rem;
   border-radius: 999px;
-  background: rgba(19, 34, 56, 0.08);
-  border: 1px solid rgba(19, 34, 56, 0.06);
-}
-
-body[data-theme="dark"] .stats-track {
-  background: rgba(148, 163, 184, 0.14);
-  border-color: rgba(148, 163, 184, 0.12);
+  background: var(--stats-track-bg);
+  border: 1px solid var(--stats-track-border);
 }
 
 .stats-fill {
@@ -990,8 +1027,8 @@ body[data-theme="dark"] .stats-track {
   width: 0;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  box-shadow: 0 8px 18px rgba(42, 157, 143, 0.24);
+  background: var(--stats-fill);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.14);
   transition: width 900ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -1324,6 +1361,16 @@ body[data-theme="dark"] .skill-meter-track {
   .skills-grid,
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stats-card {
+    padding: 1.25rem;
+    border-radius: 20px;
+  }
+
+  .stats-icon {
+    width: 3.1rem;
+    height: 3.1rem;
   }
 
   .about-story {
