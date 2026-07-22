@@ -2202,6 +2202,13 @@ body[data-theme="dark"] .contact-icon-wrap {
   stroke-linejoin: round;
 }
 
+.contact-icon-wrap img {
+  width: 1.35rem;
+  height: 1.35rem;
+  object-fit: contain;
+  object-position: center;
+}
+
 .contact-card-content {
   min-width: 0;
 }
@@ -2337,6 +2344,13 @@ body[data-theme="dark"] .contact-social a:hover {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.contact-social img {
+  width: 1.22rem;
+  height: 1.22rem;
+  object-fit: contain;
+  object-position: center;
 }
 
 .contact-form {
